@@ -1,7 +1,11 @@
-function App() {
-  return (
-    <h1>Hello World</h1>
-  );
-}
+import { HashRouter as Router } from 'react-router-dom';
 
-export default App;
+import { Sidebar } from './components/Sidebar';
+
+export function App() {
+	return (
+		<Router>
+			<Sidebar />
+		</Router>
+	);
+}
