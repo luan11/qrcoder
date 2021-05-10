@@ -1,11 +1,12 @@
 import tw from 'tailwind-styled-components';
 
-export const Container = tw.header`
+export const Container = tw.nav`
 	w-1/4
 	h-screen
 	bg-gray-900
 	text-gray-200
-	shadow-2xl
+	z-10
+	shadow-xl
 `;
 
 export const Logo = tw.h1`
