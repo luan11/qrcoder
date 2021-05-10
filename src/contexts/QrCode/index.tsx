@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 import { QrCodeContextData, QrCodeProviderProps } from './types';
 
@@ -6,14 +6,14 @@ export const QrCodeContext = createContext({} as QrCodeContextData);
 
 export function QrCodeProvider({ children }: QrCodeProviderProps) {
 	const [content, setContent] = useState('');
-	const [saved, setSaved] = useState([]);
+	const [saved, setSaved] = useState<string[]>([]);
 	const [isEmpty, setIsEmpty] = useState(content === '');
 	const [isDownloading, setIsDownloading] = useState(false);
 	const [isSaving, setIsSaving] = useState(false);
 
-	function updateContent(content: string) {
-		setContent(content);
-		setIsEmpty(content === '');
+	function updateContent(data: string) {
+		setContent(data);
+		setIsEmpty(data === '');
 	}
 
 	function downloadAsImage() {
@@ -63,6 +63,50 @@ export function QrCodeProvider({ children }: QrCodeProviderProps) {
 		}
 	}
 
+	function save() {
+		if (saved.indexOf(content) === -1) {
+			setIsSaving(true);
+
+			setSaved((old) => {
+				const updated = [...old, content];
+				const updatedJson = JSON.stringify(updated);
+
+				localStorage.setItem('qrcoder', updatedJson);
+
+				return updated;
+			});
+
+			setIsSaving(false);
+		}
+	}
+
+	function remove(data: string) {
+		const array = [...saved];
+		const index = array.indexOf(data);
+
+		if (index !== -1) {
+			array.splice(index, 1);
+
+			setSaved(array);
+
+			const arrayJson = JSON.stringify(array);
+
+			localStorage.setItem('qrcoder', arrayJson);
+
+			updateContent('');
+		}
+	}
+
+	useEffect(() => {
+		const data = localStorage.getItem('qrcoder');
+
+		if (data) {
+			const dataParsed = JSON.parse(data);
+
+			setSaved(dataParsed);
+		}
+	}, []);
+
 	return (
 		<QrCodeContext.Provider value={{
 			content,
@@ -72,6 +116,8 @@ export function QrCodeProvider({ children }: QrCodeProviderProps) {
 			isSaving,
 			updateContent,
 			downloadAsImage,
+			save,
+			remove,
 		}}>
 			{children}
 		</QrCodeContext.Provider>

@@ -6,8 +6,10 @@ export type QrCodeContextData = {
 	isEmpty: boolean;
 	isDownloading: boolean;
 	isSaving: boolean;
-	updateContent: (content: string) => void;
+	updateContent: (data: string) => void;
 	downloadAsImage: () => void;
+	save: () => void;
+	remove: (data: string) => void;
 };
 
 export type QrCodeProviderProps = {

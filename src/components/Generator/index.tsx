@@ -12,8 +12,10 @@ export function Generator() {
     content,
     isEmpty,
     isDownloading,
+    isSaving,
     updateContent,
-    downloadAsImage
+    downloadAsImage,
+    save
   } = useContext(QrCodeContext);
 
   return (
@@ -47,7 +49,8 @@ export function Generator() {
 
         <Button
           type="button"
-          disabled={isEmpty}
+          disabled={isSaving || isEmpty}
+          onClick={save}
         >
           <FiSave className="mr-2" />
           Save
