@@ -22,17 +22,17 @@ export const Logo = tw.h1`
 `;
 
 export const ListItem = tw.li`
-	py-4
-	px-6
 	border-b-2
 	border-gray-700
-	flex
-	items-center
-	justify-between
 	uppercase
 	bg-transparent
 	transition-colors
 
 	hover:bg-gray-800
 	hover:text-white
+`;
+
+export const LinkText = tw.span`
+	inline-block
+	ml-2
 `;

@@ -4,16 +4,6 @@ type ButtonProps = {
 	$success?: boolean;
 };
 
-export const Container = tw.div`
-	flex-grow
-	h-screen
-	bg-gray-800
-	flex
-	flex-col
-	justify-center
-	items-center
-`;
-
 export const TextArea = tw.textarea`
 	py-3 
 	px-6 
@@ -36,10 +26,20 @@ export const Button = tw.button<ButtonProps>`
 	py-2
 	rounded
 	text-gray-200
-	transition-all
+	transition-transform
+	ease-in-out
+	duration-500
+	transform
+	hover:scale-110
+	
 	${({$success}) => {
 		return $success 
-			? 'bg-green-500 hover:bg-green-400' 
-			: 'bg-indigo-600 hover:bg-indigo-500'
+			? 'bg-green-500' 
+			: 'bg-indigo-600'
 	}}
+	
+
+	disabled:opacity-50
+	disabled:cursor-default
+	disabled:transform-none
 `;

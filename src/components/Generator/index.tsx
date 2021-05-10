@@ -1,66 +1,36 @@
-import { useRef, useState } from 'react';
+import { useContext } from 'react'
+import { QrCodeContext } from '../../contexts/QrCode';
+
 import QRCode from 'react-qr-code';
 
 import { FiDownload, FiSave } from 'react-icons/fi';
 
-import { Container, TextArea, Button, Buttons } from './styles';
+import { TextArea, Button, Buttons } from './styles';
 
 export function Generator() {
-  const svgContainerRef = useRef<HTMLDivElement>(null);
-
-  const [content, setContent] = useState('Your content...');
-  const [isDownloading, setIsDownloading] = useState(false);
-
-  function downloadAsImage() {
-    setIsDownloading(true);
-
-    const svgEl = svgContainerRef.current?.querySelector('svg');
-    const svgData = svgEl?.outerHTML;
-
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
-
-    const img = new Image();
-
-    img.onload = () => {
-      canvas.width = img.width;
-      canvas.height = img.height;
-
-      context?.drawImage(img, 0, 0);
-
-      const date = new Date();
-
-      const file = canvas.toDataURL('image/png');
-      const filename = `qrcode_${date.getTime()}__qrcoder`;
-
-      const link = document.createElement('a');
-
-      link.download = filename;
-      link.href = `${file}`;
-
-      link.click();
-
-      setIsDownloading(false);
-    };
-
-    if (svgData) {
-      img.src = `data:image/svg+xml;base64,${btoa(svgData)}`;
-    } else {
-      setIsDownloading(false);
-    }
-  }
+  const {
+    content,
+    isEmpty,
+    isDownloading,
+    updateContent,
+    downloadAsImage
+  } = useContext(QrCodeContext);
 
   return (
-    <Container>
-      <div ref={svgContainerRef}>
-        <QRCode
-          value={content}
-        />
-      </div>
+    <>
+      {
+        !isEmpty
+        && <div id="qrcode">
+          <QRCode
+            value={content}
+          />
+        </div>
+      }
 
       <TextArea
+        placeholder="Input your content..."
         value={content}
-        onChange={(e) => setContent(e.target.value)}
+        onChange={(e) => updateContent(e.currentTarget.value)}
       />
 
       <Buttons>
@@ -69,7 +39,7 @@ export function Generator() {
           className="mr-4"
           $success={true}
           onClick={downloadAsImage}
-          disabled={isDownloading}
+          disabled={isDownloading || isEmpty}
         >
           <FiDownload className="mr-2" />
           Download
@@ -77,11 +47,12 @@ export function Generator() {
 
         <Button
           type="button"
+          disabled={isEmpty}
         >
           <FiSave className="mr-2" />
           Save
         </Button>
       </Buttons>
-    </Container>
+    </>
   );
 };

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { FiPlusCircle, FiSave } from 'react-icons/fi';
 
-import { Container, ListItem, Logo } from './styles';
+import { Container, Logo, ListItem, LinkText } from './styles';
 
 export function Sidebar() {
   return (
@@ -11,16 +11,22 @@ export function Sidebar() {
 
       <ul>
         <ListItem>
-          <FiPlusCircle />
-          <Link to="/">
-            Generate a QR Code
+          <Link
+            to="/"
+            className="py-5 px-6 w-full flex items-center"
+          >
+            <FiPlusCircle />
+            <LinkText>Generate a QR Code</LinkText>
           </Link>
         </ListItem>
 
         <ListItem>
-          <FiSave />
-          <Link to="/saved">
-            Saved QR Codes
+          <Link
+            to="/saved"
+            className="py-5 px-6 w-full flex items-center"
+          >
+            <FiSave />
+            <LinkText>Saved QR Codes</LinkText>
           </Link>
         </ListItem>
       </ul>
