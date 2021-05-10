@@ -16,7 +16,7 @@ export function App() {
 			<Sidebar />
 
 
-			<div className="flex-grow h-screen bg-gray-800 flex flex-col justify-center items-center">
+			<div className="flex-grow h-screen bg-gray-800 flex flex-col justify-center items-center px-4 overflow-hidden">
 				<Switch>
 					<Route exact path="/" render={() => <QrCodeProvider><Generator /></QrCodeProvider>} />
 					<Route path="*" component={NotFound} />

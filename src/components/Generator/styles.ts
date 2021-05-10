@@ -10,18 +10,23 @@ export const TextArea = tw.textarea`
 	rounded 
 	resize-none 
 	my-6 
-	w-2/6
+	md:w-2/6
+	w-full
 	bg-gray-900
 	text-gray-200
 `;
 
 export const Buttons = tw.div`
 	flex
+	md:flex-row
+	flex-col
+	items-center
 `;
 
 export const Button = tw.button<ButtonProps>`
 	flex
 	items-center
+	text-center
 	px-4
 	py-2
 	rounded

@@ -20,7 +20,7 @@ export function Generator() {
     <>
       {
         !isEmpty
-        && <div id="qrcode">
+        && <div id="qrcode" className="overflow-x-auto w-full flex justify-center">
           <QRCode
             value={content}
           />
@@ -36,7 +36,7 @@ export function Generator() {
       <Buttons>
         <Button
           type="button"
-          className="mr-4"
+          className="md:mr-4 md:mb-0 mb-4"
           $success={true}
           onClick={downloadAsImage}
           disabled={isDownloading || isEmpty}

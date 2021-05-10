@@ -13,7 +13,7 @@ export function Sidebar() {
         <ListItem>
           <Link
             to="/"
-            className="py-5 px-6 w-full flex items-center"
+            className="py-5 px-6 w-full flex items-center md:justify-start justify-center md:text-base text-xl"
           >
             <FiPlusCircle />
             <LinkText>Generate a QR Code</LinkText>
@@ -23,7 +23,7 @@ export function Sidebar() {
         <ListItem>
           <Link
             to="/saved"
-            className="py-5 px-6 w-full flex items-center"
+            className="py-5 px-6 w-full flex items-center md:justify-start justify-center md:text-base text-xl"
           >
             <FiSave />
             <LinkText>Saved QR Codes</LinkText>

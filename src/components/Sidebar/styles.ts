@@ -1,7 +1,7 @@
 import tw from 'tailwind-styled-components';
 
 export const Container = tw.nav`
-	w-1/4
+	lg:w-1/4
 	h-screen
 	bg-gray-900
 	text-gray-200
@@ -14,10 +14,12 @@ export const Logo = tw.h1`
 	w-full
 	mb-0
 	font-bold
-	py-8
-	px-6
+	md:py-8
+	py-4
+	md:px-6
+	px-2
 	bg-gray-700
-	text-lg
+	lg:text-lg
 	tracking-widest
 `;
 
@@ -33,6 +35,7 @@ export const ListItem = tw.li`
 `;
 
 export const LinkText = tw.span`
-	inline-block
+	lg:inline-block
 	ml-2
+	hidden
 `;
