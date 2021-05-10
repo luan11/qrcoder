@@ -1,5 +1,5 @@
 import {
-	HashRouter as Router,
+	BrowserRouter as Router,
 	Switch,
 	Route
 } from 'react-router-dom';
@@ -12,15 +12,35 @@ import { SavedList } from './components/SavedList';
 import { NotFound } from './components/NotFound';
 
 export function App() {
+	const basename = process.env.NODE_ENV === 'production'
+		? '/qrcoder'
+		: undefined;
+
 	return (
-		<Router basename="/">
+		<Router basename={basename}>
 			<Sidebar />
 
-			<div className="flex-grow h-screen bg-gray-800 flex flex-col justify-center items-center px-4 overflow-hidden">
+			<div className="flex-grow h-screen bg-gray-800 flex flex-col justify-center items-center px-4 overflow-hidden relative">
 				<Switch>
-					<Route exact path="/" render={() => <QrCodeProvider><Generator /></QrCodeProvider>} />
-					<Route exact path="/saved" render={() => <QrCodeProvider><SavedList /></QrCodeProvider>} />
-					<Route path="*" component={NotFound} />
+					<Route
+						exact
+						path="/"
+					>
+						<QrCodeProvider><Generator /></QrCodeProvider>
+					</Route>
+
+					<Route
+						exact
+						path="/saved"
+					>
+						<QrCodeProvider><SavedList /></QrCodeProvider>
+					</Route>
+
+					<Route
+						path="*"
+					>
+						<NotFound />
+					</Route>
 				</Switch>
 			</div>
 		</Router>
