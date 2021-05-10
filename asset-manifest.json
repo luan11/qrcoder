@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/qrcoder/static/css/main.b561e467.chunk.css",
-    "main.js": "/qrcoder/static/js/main.2861f365.chunk.js",
-    "main.js.map": "/qrcoder/static/js/main.2861f365.chunk.js.map",
+    "main.js": "/qrcoder/static/js/main.63b60351.chunk.js",
+    "main.js.map": "/qrcoder/static/js/main.63b60351.chunk.js.map",
     "runtime-main.js": "/qrcoder/static/js/runtime-main.4693a42b.js",
     "runtime-main.js.map": "/qrcoder/static/js/runtime-main.4693a42b.js.map",
     "static/js/2.8a45021f.chunk.js": "/qrcoder/static/js/2.8a45021f.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.4693a42b.js",
     "static/js/2.8a45021f.chunk.js",
     "static/css/main.b561e467.chunk.css",
-    "static/js/main.2861f365.chunk.js"
+    "static/js/main.63b60351.chunk.js"
   ]
 }
