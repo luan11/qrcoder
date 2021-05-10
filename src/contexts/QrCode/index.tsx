@@ -1,4 +1,6 @@
 import { createContext, useEffect, useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { QrCodeContextData, QrCodeProviderProps } from './types';
 
@@ -54,12 +56,20 @@ export function QrCodeProvider({ children }: QrCodeProviderProps) {
 			link.click();
 
 			setIsDownloading(false);
+
+			toast('Downloaded successfully!', {
+				type: toast.TYPE.SUCCESS
+			});
 		};
 
 		if (svgData) {
 			img.src = `data:image/svg+xml;base64,${btoa(svgData)}`;
 		} else {
 			setIsDownloading(false);
+
+			toast('An error occurred, please try again', {
+				type: toast.TYPE.ERROR
+			});
 		}
 	}
 
@@ -77,6 +87,14 @@ export function QrCodeProvider({ children }: QrCodeProviderProps) {
 			});
 
 			setIsSaving(false);
+
+			toast('Saved successfully!', {
+				type: toast.TYPE.SUCCESS
+			});
+		} else {
+			toast('An error occurred, please try again', {
+				type: toast.TYPE.ERROR
+			});
 		}
 	}
 
@@ -94,6 +112,14 @@ export function QrCodeProvider({ children }: QrCodeProviderProps) {
 			localStorage.setItem('qrcoder', arrayJson);
 
 			updateContent('');
+
+			toast('Deleted successfully!', {
+				type: toast.TYPE.SUCCESS
+			});
+		} else {
+			toast('An error occurred, please try again', {
+				type: toast.TYPE.ERROR
+			});
 		}
 	}
 
@@ -119,6 +145,8 @@ export function QrCodeProvider({ children }: QrCodeProviderProps) {
 			save,
 			remove,
 		}}>
+			<ToastContainer />
+
 			{children}
 		</QrCodeContext.Provider>
 	);

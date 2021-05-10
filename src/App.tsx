@@ -13,9 +13,8 @@ import { NotFound } from './components/NotFound';
 
 export function App() {
 	return (
-		<Router basename={process.env.PUBLIC_URL}>
+		<Router basename="/">
 			<Sidebar />
-
 
 			<div className="flex-grow h-screen bg-gray-800 flex flex-col justify-center items-center px-4 overflow-hidden">
 				<Switch>

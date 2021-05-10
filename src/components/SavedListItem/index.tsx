@@ -25,7 +25,7 @@ export function SavedListItem({ data }: SavedListItemProps) {
 	return (
 		<Tr>
 			<Td className="border-r-2 border-gray-700">
-				<code className="bg-gray-700 px-4 py-2">{data}</code>
+				<code className="bg-gray-700 px-4 py-2 lg:break-normal break-all">{data}</code>
 			</Td>
 			<Td>
 				<Button
