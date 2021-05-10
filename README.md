@@ -1,15 +1,6 @@
 <h1 align="center">Welcome to qrcoder 👋</h1>
 <p>
-  <img alt="Demo" src="https://raw.githubusercontent.com/luan11/qrcoder/main/docs/screenshot-1.png" />
-</p>
-<p>
   <img alt="Demo" src="https://raw.githubusercontent.com/luan11/qrcoder/main/docs/screenshot-2.png" />
-</p>
-<p>
-  <img alt="Demo" src="https://raw.githubusercontent.com/luan11/qrcoder/main/docs/screenshot-mobile-1.png" />
-</p>
-<p>
-  <img alt="Demo" src="https://raw.githubusercontent.com/luan11/qrcoder/main/docs/screenshot-mobile-2.png" />
 </p>
 
 > QR Code Generator built with ReactJS.
