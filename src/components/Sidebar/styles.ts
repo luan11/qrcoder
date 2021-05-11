@@ -7,6 +7,8 @@ export const Container = tw.nav`
 	text-gray-200
 	z-10
 	shadow-xl
+	flex
+	flex-col
 `;
 
 export const Logo = tw.h1`
@@ -21,6 +23,12 @@ export const Logo = tw.h1`
 	bg-gray-700
 	lg:text-lg
 	tracking-widest
+`;
+
+export const List = tw.ul`
+	flex-grow
+	flex
+	flex-col
 `;
 
 export const ListItem = tw.li`

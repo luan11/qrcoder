@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom';
 
-import { FiPlusCircle, FiSave } from 'react-icons/fi';
+import { FiPlusCircle, FiSave, FiGithub } from 'react-icons/fi';
 
-import { Container, Logo, ListItem, LinkText } from './styles';
+import { Container, Logo, List, ListItem, LinkText } from './styles';
 
 export function Sidebar() {
   return (
     <Container>
       <Logo>qrcoder</Logo>
 
-      <ul>
+      <List>
         <ListItem>
           <Link
             to="/"
@@ -29,7 +29,19 @@ export function Sidebar() {
             <LinkText>Saved QR Codes</LinkText>
           </Link>
         </ListItem>
-      </ul>
+
+        <ListItem className="mt-auto border-t-2">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/luan11/qrcoder"
+            className="py-5 px-6 w-full flex items-center md:justify-start justify-center md:text-base text-xl"
+          >
+            <FiGithub />
+            <LinkText>GitHub</LinkText>
+          </a>
+        </ListItem>
+      </List>
     </Container>
   );
 };
