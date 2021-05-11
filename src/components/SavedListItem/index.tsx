@@ -7,7 +7,6 @@ import { FiTrash2, FiDownload } from 'react-icons/fi';
 import { SavedListItemProps } from './types';
 import { Tr, Td, Button } from './styles';
 
-
 export function SavedListItem({ data }: SavedListItemProps) {
 	const {
 		updateContent,
@@ -25,13 +24,14 @@ export function SavedListItem({ data }: SavedListItemProps) {
 	return (
 		<Tr>
 			<Td className="border-r-2 border-gray-700">
-				<code className="bg-gray-700 px-4 py-2 lg:break-normal break-all">{data}</code>
+				<code className="bg-gray-700 px-4 py-2 lg:break-normal break-all shadow-lg">{data}</code>
 			</Td>
 			<Td>
 				<Button
 					type="button"
 					className="hover:text-green-500"
 					onClick={handleDownload}
+					title="Download"
 				>
 					<FiDownload />
 				</Button>
@@ -40,6 +40,7 @@ export function SavedListItem({ data }: SavedListItemProps) {
 					type="button"
 					className="hover:text-red-500"
 					onClick={() => remove(data)}
+					title="Delete"
 				>
 					<FiTrash2 />
 				</Button>

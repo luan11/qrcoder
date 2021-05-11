@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-import { FiPlusCircle, FiSave, FiGithub } from 'react-icons/fi';
+import { FiPlusCircle, FiSave, FiInfo, FiGithub } from 'react-icons/fi';
 
 import { Container, Logo, List, ListItem, LinkText } from './styles';
 
@@ -11,23 +11,39 @@ export function Sidebar() {
 
       <List>
         <ListItem>
-          <Link
+          <NavLink
             to="/"
+            exact
+            activeClassName="bg-blue-700"
             className="py-5 px-6 w-full flex items-center md:justify-start justify-center md:text-base text-xl"
           >
             <FiPlusCircle />
-            <LinkText>Generate a QR Code</LinkText>
-          </Link>
+            <LinkText>New</LinkText>
+          </NavLink>
         </ListItem>
 
         <ListItem>
-          <Link
+          <NavLink
             to="/saved"
+            exact
+            activeClassName="bg-blue-700"
             className="py-5 px-6 w-full flex items-center md:justify-start justify-center md:text-base text-xl"
           >
             <FiSave />
-            <LinkText>Saved QR Codes</LinkText>
-          </Link>
+            <LinkText>Saved</LinkText>
+          </NavLink>
+        </ListItem>
+
+        <ListItem>
+          <NavLink
+            to="/about"
+            exact
+            activeClassName="bg-blue-700"
+            className="py-5 px-6 w-full flex items-center md:justify-start justify-center md:text-base text-xl"
+          >
+            <FiInfo />
+            <LinkText>About</LinkText>
+          </NavLink>
         </ListItem>
 
         <ListItem className="mt-auto border-t-2">

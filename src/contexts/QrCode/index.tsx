@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -123,6 +124,14 @@ export function QrCodeProvider({ children }: QrCodeProviderProps) {
 		}
 	}
 
+	function removeAll() {
+		setSaved([]);
+
+		localStorage.setItem('qrcoder', JSON.stringify([]));
+
+		setIsEmpty(true);
+	}
+
 	useEffect(() => {
 		const data = localStorage.getItem('qrcoder');
 
@@ -144,6 +153,7 @@ export function QrCodeProvider({ children }: QrCodeProviderProps) {
 			downloadAsImage,
 			save,
 			remove,
+			removeAll,
 		}}>
 			<ToastContainer />
 

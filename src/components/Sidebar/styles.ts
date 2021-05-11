@@ -20,7 +20,7 @@ export const Logo = tw.h1`
 	py-4
 	md:px-6
 	px-2
-	bg-gray-700
+	bg-blue-900
 	lg:text-lg
 	tracking-widest
 `;
@@ -33,12 +33,12 @@ export const List = tw.ul`
 
 export const ListItem = tw.li`
 	border-b-2
-	border-gray-700
+	border-blue-900
 	uppercase
 	bg-transparent
 	transition-colors
 
-	hover:bg-gray-800
+	hover:bg-blue-600
 	hover:text-white
 `;
 

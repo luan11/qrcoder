@@ -1,7 +1,9 @@
 import tw from 'tailwind-styled-components';
 
 type ButtonProps = {
+	$default?: boolean;
 	$success?: boolean;
+	$error?: boolean;
 };
 
 export const Container = tw.div`
@@ -23,20 +25,23 @@ export const Container = tw.div`
 export const TextArea = tw.textarea`
 	py-3 
 	px-6 
-	rounded 
+	rounded-md
+	border-2
+	border-blue-900 
 	resize-none 
 	my-6 
-	md:w-2/6
+	md:w-3/5
 	w-full
 	bg-gray-900
 	text-gray-200
+	md:h-28
+	shadow-lg
 `;
 
 export const Buttons = tw.div`
 	flex
-	md:flex-row
-	flex-col
-	items-center
+	flex-wrap
+	justify-center
 `;
 
 export const Button = tw.button<ButtonProps>`
@@ -52,13 +57,14 @@ export const Button = tw.button<ButtonProps>`
 	duration-500
 	transform
 	hover:scale-110
+	md:mr-4
+	mr-2
+	md:mb-0
+	mb-4
 	
-	${({$success}) => {
-		return $success 
-			? 'bg-green-500' 
-			: 'bg-indigo-600'
-	}}
-	
+	${({$default}) => $default ? 'bg-blue-500' : ''}
+	${({$success}) => $success ? 'bg-green-500' : ''}
+	${({$error}) => $error ? 'bg-red-500' : ''}
 
 	disabled:opacity-50
 	disabled:cursor-default

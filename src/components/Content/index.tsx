@@ -19,7 +19,7 @@ export function Content() {
             exit: 400
           }}
           classNames="pageSlider"
-          key={location.key}
+          key={location.pathname}
         >
           <Switch location={location}>
             <Route

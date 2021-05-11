@@ -3,7 +3,7 @@ import { QrCodeContext } from '../../contexts/QrCode';
 
 import QRCode from 'react-qr-code';
 
-import { FiDownload, FiSave } from 'react-icons/fi';
+import { FiDownload, FiSave, FiDelete } from 'react-icons/fi';
 
 import { Container, TextArea, Button, Buttons } from './styles';
 
@@ -17,6 +17,10 @@ export function Generator() {
     downloadAsImage,
     save
   } = useContext(QrCodeContext);
+
+  function emptyContent() {
+    updateContent('');
+  }
 
   return (
     <Container>
@@ -38,10 +42,21 @@ export function Generator() {
       <Buttons>
         <Button
           type="button"
-          className="md:mr-4 md:mb-0 mb-4"
-          $success={true}
+          $default
+          disabled={isSaving || isEmpty}
+          onClick={save}
+          title="Save it"
+        >
+          <FiSave className="mr-2" />
+          Save
+        </Button>
+
+        <Button
+          type="button"
+          $success
           onClick={downloadAsImage}
           disabled={isDownloading || isEmpty}
+          title="Download it"
         >
           <FiDownload className="mr-2" />
           Download
@@ -49,11 +64,12 @@ export function Generator() {
 
         <Button
           type="button"
-          disabled={isSaving || isEmpty}
-          onClick={save}
+          $error
+          disabled={isEmpty}
+          onClick={emptyContent}
+          title="Clean the content"
         >
-          <FiSave className="mr-2" />
-          Save
+          <FiDelete />
         </Button>
       </Buttons>
     </Container>

@@ -10,6 +10,7 @@ export type QrCodeContextData = {
 	downloadAsImage: () => void;
 	save: () => void;
 	remove: (data: string) => void;
+	removeAll: () => void;
 };
 
 export type QrCodeProviderProps = {

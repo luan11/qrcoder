@@ -1,7 +1,9 @@
-import { Title } from './styles';
+import { Container, Title } from './styles';
 
 export function NotFound() {
   return (
-    <Title>404 - Not Found</Title>
+    <Container>
+      <Title>404 - Not Found</Title>
+    </Container>
   );
 };
