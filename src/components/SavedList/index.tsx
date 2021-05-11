@@ -5,13 +5,13 @@ import { FiFileText, FiSettings } from 'react-icons/fi';
 
 import { SavedListItem } from '../SavedListItem';
 
-import { Table, Th } from './styles';
+import { Container, Table, Th } from './styles';
 
 export function SavedList() {
   const { saved } = useContext(QrCodeContext);
 
   return (
-    <>
+    <Container>
       <Table>
         <thead>
           <tr>
@@ -25,6 +25,6 @@ export function SavedList() {
       </Table>
 
       {saved.length === 0 && <p className="text-center text-gray-200 mt-4">No saved QR Codes found...</p>}
-    </>
+    </Container>
   );
 };
