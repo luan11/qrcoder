@@ -3,6 +3,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import { Generator } from './../Generator';
 import { SavedList } from './../SavedList';
+import { About } from './../About';
 import { NotFound } from './../NotFound';
 
 import { Container } from './styles';
@@ -34,6 +35,13 @@ export function Content() {
               path="/saved"
             >
               <SavedList />
+            </Route>
+
+            <Route
+              exact
+              path="/about"
+            >
+              <About />
             </Route>
 
             <Route
