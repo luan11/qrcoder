@@ -12,7 +12,7 @@ export const Td = tw.td`
 `;
 
 export const Button = tw.button`
-	mr-4
+	mr-5
 	text-xl
 	transition
 	duration-300

@@ -21,8 +21,11 @@ export const Logo = tw.h1`
 	md:px-6
 	px-2
 	bg-blue-900
-	lg:text-lg
+	bg-opacity-40
+	lg:text-2xl
 	tracking-widest
+	border-b-2
+	border-blue-900
 `;
 
 export const List = tw.ul`
@@ -34,9 +37,9 @@ export const List = tw.ul`
 export const ListItem = tw.li`
 	border-b-2
 	border-blue-900
-	uppercase
 	bg-transparent
 	transition-colors
+	font-bold
 
 	hover:bg-blue-600
 	hover:text-white

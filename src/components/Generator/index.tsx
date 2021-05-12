@@ -5,7 +5,7 @@ import QRCode from 'react-qr-code';
 
 import { FiDownload, FiSave, FiDelete } from 'react-icons/fi';
 
-import { Container, TextArea, Button, Buttons } from './styles';
+import { Container, TextArea, Button, Buttons, QrCodeEmpty } from './styles';
 
 export function Generator() {
   const {
@@ -26,11 +26,12 @@ export function Generator() {
     <Container>
       {
         !isEmpty
-        && <div id="qrcode" className="overflow-x-auto w-full flex justify-center">
-          <QRCode
-            value={content}
-          />
-        </div>
+          ? <div id="qrcode" className="overflow-x-auto w-full flex justify-center">
+            <QRCode
+              value={content}
+            />
+          </div>
+          : <QrCodeEmpty />
       }
 
       <TextArea

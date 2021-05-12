@@ -34,7 +34,7 @@ export function SavedList() {
         </tbody>
       </Table>
 
-      {saved.length > 0 &&
+      {saved.length > 1 &&
         <ButtonRemove
           type="button"
           onClick={handleRemoveAll}
@@ -44,7 +44,7 @@ export function SavedList() {
         </ButtonRemove>
       }
 
-      {saved.length === 0 && <p className="text-center text-gray-200 mt-4">No saved QR Codes found...</p>}
+      {saved.length === 0 && <p className="text-center text-gray-300 mt-10 text-lg italic">No saved QR Codes found...</p>}
     </Container>
   );
 };

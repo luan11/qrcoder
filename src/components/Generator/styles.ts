@@ -23,11 +23,9 @@ export const Container = tw.div`
 `;
 
 export const TextArea = tw.textarea`
-	py-3 
-	px-6 
+	py-4 
+	px-8 
 	rounded-md
-	border-2
-	border-blue-900 
 	resize-none 
 	my-6 
 	md:w-3/5
@@ -36,6 +34,7 @@ export const TextArea = tw.textarea`
 	text-gray-200
 	md:h-28
 	shadow-lg
+	font-mono
 `;
 
 export const Buttons = tw.div`
@@ -61,12 +60,20 @@ export const Button = tw.button<ButtonProps>`
 	mr-2
 	md:mb-0
 	mb-4
+	font-bold
 	
 	${({$default}) => $default ? 'bg-blue-500' : ''}
 	${({$success}) => $success ? 'bg-green-500' : ''}
 	${({$error}) => $error ? 'bg-red-500' : ''}
 
 	disabled:opacity-50
+	disabled:bg-gray-700
 	disabled:cursor-default
 	disabled:transform-none
+`;
+
+export const QrCodeEmpty = tw.div`
+	w-64
+	h-64
+	bg-gray-700
 `;

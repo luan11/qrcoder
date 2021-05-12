@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Work Sans', 'sans-serif'],
+        'sans': ['Comfortaa', 'sans-serif'],
+        'mono': ['JetBrains Mono', 'monospace'],
       }
     },
   },
@@ -13,6 +14,7 @@ module.exports = {
       opacity: ['disabled'],
       cursor: ['disabled'],
       transform: ['disabled'],
+      backgroundColor: ['disabled'],
     },
   },
   plugins: [],
