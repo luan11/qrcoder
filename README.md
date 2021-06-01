@@ -7,8 +7,6 @@
 
 ### 🏠 [Homepage](http://luan11.github.io/qrcoder)
 
-### ✨ [Demo](http://luan11.github.io/qrcoder)
-
 ## Install
 
 ```sh
@@ -19,12 +17,6 @@ yarn install
 
 ```sh
 yarn run start
-```
-
-## Run tests
-
-```sh
-yarn run test
 ```
 
 ## Author
